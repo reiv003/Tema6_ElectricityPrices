@@ -1,13 +1,13 @@
 <template>
-	<Sample />
+	<PricesGraph />
 </template>
 
 <script>
-	import Sample from "../components/Sample.vue";
+	import PricesGraph from "../components/PricesGraph.vue";
 
 	export default {
 		components: {
-			Sample,
+			PricesGraph,
 		}
 	};
 </script>
