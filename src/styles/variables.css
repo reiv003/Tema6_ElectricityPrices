@@ -1,3 +1,10 @@
 :root {
-	--sample-variable: 0.5em;
+	--background-color: #FFFFFF;
+	--main-text-color: #2B2B2B;
+	--secondary-text-color: #344D69;
+	--accent-color: #90DAE4;
+	--secondary-accent-color: #3771B6;
+	--footer-color: #4B5561;
+
+	--general-spacing: 0.5em;
 }

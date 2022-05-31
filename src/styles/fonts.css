@@ -1,8 +1,20 @@
-/*
 @font-face {
-	font-family: Arial;
-	src: url('/assets/fonts/Arial.ttf');
+	font-family: TextMeOne;
+	src: url('/assets/fonts/TextMeOne-Regular.ttf');
 	font-weight: normal;
 	font-style: normal;
 }
-*/
+
+@font-face {
+	font-family: Quicksand;
+	src: url('/assets/fonts/Quicksand-Regular.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: QuicksandSemiBold;
+	src: url('/assets/fonts/Quicksand-SemiBold.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
