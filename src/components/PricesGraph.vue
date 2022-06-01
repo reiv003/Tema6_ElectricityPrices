@@ -1,15 +1,16 @@
 <template>
-	<!-- The graph points are off by 1, ie. the price for 00 is instead showing at 01. The label for this data is also showing as undefined. Not sure how to fix either of these yet.  -->
-	<div class="pricesGraph">
-		<Line v-if="loaded"
-			:chart-data="chartData"
-		/>
+<div class="content">
+	<h2> {{ new Date().toLocaleString() }} </h2>
+	<!-- The graph points were off by 1, ie. the price for 00 was instead showing at 01. Did not figure out how to actually fix this, so I cheesed it by adding an empty label first so that the numbers would at least line up. The graph on https://www.chartjs.org/docs/latest/charts/line.html does touch the edge/match up to the first label properly, so I'm not sure what the issue is. It's not that the label is 00, the behavior is the same with a string or other number.   -->
+		<div class="pricesGraph">
+			<Line v-if="loaded"
+				:chart-data="chartData"
+				:plugins="plugins"
+				:height="height"
+				
+			/>
+		</div>
 	</div>
-
-	<div class="pricesList">
-		<div> {{ displayPrices }} </div>
-	</div>
-	
 </template>
 
 <script>
@@ -37,9 +38,27 @@
 
 	Chart.register(...registerables)
 
+	/* Had some issues trying to define these values using the vue-chart wrapper structure, so they are defined outside using chart js globally defined values. */
+	Chart.defaults.font.size = 22;
+	Chart.defaults.font.family = "Quicksand";
+	Chart.defaults.plugins.tooltip.backgroundColor = "#90DAE4";
+	Chart.defaults.plugins.tooltip.titleColor = "#344D69";
+	Chart.defaults.plugins.tooltip.bodyColor = "#002653";
+	
+
 	export default {
 		name: 'LineChart',
 		components: { Line },
+		props: {
+			plugins: {
+				type: Object,
+				default: () => {}
+			},
+			height: {
+				type: Number,
+				default: 180
+			}
+		},
 
 		data() {
 			return {
@@ -49,10 +68,23 @@
 				prices: [],
 				displayPrices: '',
 				chartData: {
-					labels: [ '00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '21', '22', '23' ],
-					datasets: [ { data: [null] } ]
+					labels: [ '', '00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23' ],
+					
+					datasets: [ { 
+						label: "Strømpriser",
+						/* Using css variables did not seem work here, so the colors are added manually. */
+						pointBackgroundColor: "#90DAE4",
+						pointBorderColor: "#90DAE4",
+						pointRadius: 5,
+						pointHoverRadius: 7,
+					
+						backgroundColor: "#90DAE4",
+						borderColor: "#344D69",
+						borderCapStyle: "round",
+						data: [null] 
+						}, ],
+					
 				},
-		
 
 			}
 		},
