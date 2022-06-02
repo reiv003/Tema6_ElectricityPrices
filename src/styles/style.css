@@ -34,11 +34,11 @@ h2 {
 	margin-top: var(--general-spacing);
 }
 
+a:hover {
+	text-decoration: underline;
+}
+
 .content {
 	grid-column: 2 / span 10;
 
-}
-
-a:hover {
-	text-decoration: underline;
 }
