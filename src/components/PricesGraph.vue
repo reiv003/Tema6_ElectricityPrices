@@ -24,7 +24,7 @@
 
 	/*
 	Got errors when trying to import the necessary components individually (it started by saying PointElement was not registered, but then threw an error for another element after). 
-	I've just imported everything for the time being.
+	I've just imported everything (registerables) for the time being.
 
 	sources:
 	https://stackoverflow.com/questions/71429342/react-chart-js-2-in-combination-with-typescript-for-linecharts-uncaught-error
